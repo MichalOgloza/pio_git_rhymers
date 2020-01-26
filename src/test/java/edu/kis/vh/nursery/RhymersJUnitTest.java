@@ -1,5 +1,6 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.data_structures.IntArrayStack;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,35 +27,35 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testIsFull() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+		IntArrayStack stack = new IntArrayStack();
 		final int STACK_CAPACITY = 12;
 		for (int i = 0; i < STACK_CAPACITY; i++) {
-			Assert.assertFalse(rhymer.isFull());
-			rhymer.countIn(888);
+			Assert.assertFalse(stack.isFull());
+			stack.countIn(888);
 		}
 
-		Assert.assertTrue(rhymer.isFull());
+		Assert.assertTrue(stack.isFull());
 	}
 
 	@Test
 	public void getTotalTest() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		IntArrayStack stack = new IntArrayStack();
+		final int EMPTY_STACK_VALUE = 0;
 
-		Assert.assertEquals(EMPTY_STACK_VALUE, rhymer.peek());
+		Assert.assertEquals(EMPTY_STACK_VALUE, stack.peek());
 		int testValue = 4;
 
 		for(int i = 0; i <= testValue; i++)
-			rhymer.countIn(i);
+			stack.countIn(i);
 
-		Assert.assertEquals(testValue, rhymer.getTotal());
+		Assert.assertEquals(testValue, stack.getTotal());
 
 	}
 
 	@Test
 	public void testPeek() {
 		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		final int EMPTY_STACK_VALUE = 0;
 
 		Assert.assertEquals(EMPTY_STACK_VALUE, rhymer.peek());
 
@@ -69,7 +70,7 @@ public class RhymersJUnitTest {
 	@Test
 	public void testCountOut() {
 		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		final int EMPTY_STACK_VALUE = 0;
 
 		Assert.assertEquals(EMPTY_STACK_VALUE, rhymer.countOut());
 

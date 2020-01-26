@@ -1,13 +1,25 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.data_structures.IntArrayStack;
+import edu.kis.vh.nursery.data_structures.IntLinkedList;
+
 public class FIFORhymer extends DefaultCountingOutRhymer {
 
 
-    final private DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
+    final private IntDataStructure temp = new IntLinkedList();
+    //wybrałem IntLinkedList ze względu na dynamiczny rozmiar
 
-//    kombinacja alt + -> pozwala przechodzenie między plikami
+
+    public FIFORhymer(IntArrayStack stack) {
+        super(stack);
+    }
+
+    public FIFORhymer() {
+    }
+
+    //    kombinacja alt + -> pozwala przechodzenie między plikami
     @Override
-    int countOut() {
+    public int countOut() {
         while (!callCheck())
             temp.countIn(super.countOut());
 

@@ -1,12 +1,14 @@
-package edu.kis.vh.nursery.list;
+package edu.kis.vh.nursery.data_structures;
 
-public class IntLinkedList {
+import edu.kis.vh.nursery.IntDataStructure;
 
-	public static final int DEFAULT = -1;
+public class IntLinkedList implements IntDataStructure {
+
+	public static final int DEFAULT = 0;
 	private Node last;
 	private int i;
 
-	public void push(int i) {
+	public void countIn(int i) {
 		if (last == null)
 			last = new Node(i);
 		else {
@@ -16,18 +18,18 @@ public class IntLinkedList {
 		}
 	}
 
-	private boolean isEmpty() {
+	public boolean callCheck() {
 		return last == null;
 	}
 
-	public int top() {
-		if (isEmpty())
+	public int peek() {
+		if (callCheck())
 			return DEFAULT;
 		return last.getValue();
 	}
 
-	public int pop() {
-		if (isEmpty())
+	public int countOut() {
+		if (callCheck())
 			return DEFAULT;
 		int ret = last.getValue();
 		last = last.getPrev();

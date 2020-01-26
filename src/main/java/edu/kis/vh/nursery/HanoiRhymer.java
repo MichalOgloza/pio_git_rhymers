@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.data_structures.IntArrayStack;
+
 /**
  * Klasa dziedziczczy po DefaultCountingOutRhymer,
  * nadpisuje merodę countIn.
@@ -10,6 +12,13 @@ public class HanoiRhymer extends DefaultCountingOutRhymer {
      * pole klasy opisujące całkowitą liczbę odrzuconych elementów
      */
     private int totalRejected = 0;
+
+    public HanoiRhymer(IntArrayStack stack) {
+        super(stack);
+    }
+
+    public HanoiRhymer() {
+    }
 
     /**
      * Getter dla total rejected

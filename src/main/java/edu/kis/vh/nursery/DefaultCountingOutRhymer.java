@@ -1,8 +1,10 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.data_structures.IntArrayStack;
+
 public class DefaultCountingOutRhymer {
 
-    private IntArrayStack stack;
+    private IntDataStructure stack;
 
     public DefaultCountingOutRhymer(IntArrayStack stack) {
         this.stack = stack;
@@ -20,19 +22,11 @@ public class DefaultCountingOutRhymer {
         return stack.callCheck();
     }
 
-    public boolean isFull() {
-        return stack.isFull();
-    }
-
-    public int getTotal() {
-        return stack.getTotal();
-    }
-
     public int peek() {
         return stack.peek();
     }
 
-    int countOut() {
+    public int countOut() {
         return stack.countOut();
     }
 }

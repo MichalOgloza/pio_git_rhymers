@@ -1,11 +1,12 @@
-package edu.kis.vh.nursery;
+package edu.kis.vh.nursery.data_structures;
 
-public class IntArrayStack
-{
+import edu.kis.vh.nursery.IntDataStructure;
+
+public class IntArrayStack implements IntDataStructure {
 
     public static final int MAX_SIZE = 12;
     public static final int EMPTY = -1;
-    public static final int VAL_DEFAULT = -1;
+    public static final int VAL_DEFAULT = 0;
     final private int[] NUMBERS = new int[MAX_SIZE];
 
 
@@ -17,11 +18,11 @@ public class IntArrayStack
     }
 
 
-    boolean callCheck() {
+    public boolean callCheck() {
         return total == -1;
     }
 
-    boolean isFull() {
+    public boolean isFull() {
         return total == 11;
     }
 
@@ -29,13 +30,13 @@ public class IntArrayStack
         return total;
     }
 
-    int peek() {
+    public int peek() {
         if (callCheck())
             return VAL_DEFAULT;
         return NUMBERS[total];
     }
 
-    int countOut() {
+    public int countOut() {
         if (callCheck())
             return VAL_DEFAULT;
         return NUMBERS[total--];
