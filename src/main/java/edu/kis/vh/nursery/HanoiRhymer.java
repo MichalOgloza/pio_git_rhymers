@@ -1,17 +1,34 @@
 package edu.kis.vh.nursery;
 
-public class HanoiRhymer extends defaultCountingOutRhymer {
+/**
+ * Klasa dziedziczczy po DefaultCountingOutRhymer,
+ * nadpisuje merodę countIn.
+ */
+public class HanoiRhymer extends DefaultCountingOutRhymer {
 
-int totalRejected = 0;
+    /**
+     * pole klasy opisujące całkowitą liczbę odrzuconych elementów
+     */
+    private int totalRejected = 0;
 
-	public int reportRejected() {
-		return totalRejected;
-	}
+    /**
+     * Getter dla total rejected
+     * @return wartość pola totalRejected
+     */
+    int reportRejected() {
+        return totalRejected;
+    }
 
-	public void countIn(int in) {
-	if (!callCheck() && in > peekaboo())
-			totalRejected++;
-			else
-				super.countIn(in);
-	}
+    /**
+     * Sprawdza czy parametr jest większy od ostatniego elementu na stosie
+     * i wywołuje metodę countIn z klasy nadrzędnej, w innym wypadku element zostaje odrzucony.
+     * @param in element który ma być wrzucony na stos
+     */
+    @Override
+    public void countIn(int in) {
+        if (!callCheck() && in > peek())
+            totalRejected++;
+        else
+            super.countIn(in);
+    }
 }
